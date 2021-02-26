@@ -14,9 +14,9 @@ exports.getClient = async function (request, response, next) {
     try {
         var client = await ClientService.getClient(id)
         if (client.length)
-           response.json({ status: 200, data: client[0], message: "Succesfully Client Retrieved" })
+            response.json({ status: 200, data: client[0], message: "Succesfully Client Retrieved" })
         else
-           response.status(404).send("Client not found.");    
+            response.status(404).send("Client not found.");    
     } catch (e) {
         next(e);
     }

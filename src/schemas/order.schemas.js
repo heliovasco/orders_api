@@ -4,9 +4,9 @@ const schemas = {
   orderGET: Joi.object().keys({
     id: Joi.number().min(1).required()
   }),
-orderDELETE: Joi.object().keys({
-    id: Joi.number().min(1).required()
-  }),
+  orderDELETE: Joi.object().keys({
+      id: Joi.number().min(1).required()
+    }),
   orderPOST: Joi.object().keys({
     reference_number: Joi.string().required(),
     client_id: Joi.number().required(),
