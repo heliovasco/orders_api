@@ -7,7 +7,7 @@ const schemas = {
 orderDELETE: Joi.object().keys({
     id: Joi.number().min(1).required()
   }),
-  orderCreatePOST: Joi.object().keys({
+  orderPOST: Joi.object().keys({
     reference_number: Joi.string().required(),
     client_id: Joi.number().required(),
     date: Joi.date().required(),
@@ -19,11 +19,11 @@ orderDELETE: Joi.object().keys({
     })),
   }),
   orderItemAddPOST: Joi.object().keys({
-    order_id: Joi.number().min(1).required(),
+    id: Joi.number().min(1).required(),
     qty: Joi.number().min(1).required(),
     price: Joi.number().min(0).required()
   }),
-  orderUpdatePOST: Joi.object().keys({
+  orderPATCH: Joi.object().keys({
     id: Joi.number().required(),
     reference_number: Joi.string(),
     client_id: Joi.number(),

@@ -37,7 +37,8 @@ exports.createClient = async function (request, response, next) {
 }
 
 exports.editClient = async function (request, response, next) {
-    const {id, name,surname,email,phone} = request.body;
+    const {id} = request.params
+    const {name,surname,email,phone} = request.body;
     try {
         var clientUpdated = await ClientService.editClient(id,name,surname,email,phone)
         if (clientUpdated)

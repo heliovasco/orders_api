@@ -38,7 +38,8 @@ exports.createOrder = async function (request, response, next) {
 }
 
 exports.editOrder = async function (request, response, next) {
-    const {id,reference_number,client_id,date,address,total} = request.body;
+    const {id} = request.params
+    const {reference_number,client_id,date,address,total} = request.body;
     const order_date = new Date(date)
     try {
         var orderUpdated = await OrderService.editOrder(id,reference_number,client_id,order_date,address,total)
@@ -65,15 +66,16 @@ exports.deleteOrder = async function (request, response, next) {
 }
 
 exports.addOrderItem = async function (request, response, next) {
-    const {order_id,qty,price} = request.body
+    const {id} = request.params
+    const {qty,price} = request.body
 
     try {
-        var order = await OrderService.getOrder(order_id)
+        var order = await OrderService.getOrder(id)
         if (!order.length){
             response.status(404).send("Order not found."); 
         }
 
-        var orderItemId = await OrderService.addOrderItem(order_id,qty,price);
+        var orderItemId = await OrderService.addOrderItem(id,qty,price);
 
         response.json({ status: 200, id: orderItemId, message: "Succesfully Order item created" })   
     } catch (e) {

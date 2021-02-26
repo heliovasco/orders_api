@@ -34,7 +34,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/client/1",
+							"raw": "http://localhost:8080/api/client/45",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -43,7 +43,7 @@
 							"path": [
 								"api",
 								"client",
-								"1"
+								"45"
 							]
 						}
 					},
@@ -80,9 +80,9 @@
 					"response": []
 				},
 				{
-					"name": "/api/client/edit",
+					"name": "/api/client/:id",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -94,7 +94,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/client/create",
+							"raw": "http://localhost:8080/api/client/49",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -103,7 +103,7 @@
 							"path": [
 								"api",
 								"client",
-								"create"
+								"49"
 							]
 						}
 					},
@@ -115,7 +115,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/client/43",
+							"raw": "http://localhost:8080/api/client/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -124,7 +124,7 @@
 							"path": [
 								"api",
 								"client",
-								"43"
+								"1"
 							]
 						}
 					},
@@ -177,27 +177,6 @@
 					"response": []
 				},
 				{
-					"name": "/api/order/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/order/47",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"order",
-								"47"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "/api/order/create",
 					"request": {
 						"method": "POST",
@@ -228,13 +207,13 @@
 					"response": []
 				},
 				{
-					"name": "/api/order/edit",
+					"name": "/api/order/:id",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id\":49,\n\"client_id\":1,\n\"reference_number\":\"123456\",\n\"date\":\"2014-01-01T23:28:56.782Z\",\n\"address\":\"Address test 22\",\n\"total\":55\n}",
+							"raw": "{\"client_id\":1,\n\"reference_number\":\"123456\",\n\"date\":\"2014-01-01T23:28:56.782Z\",\n\"address\":\"Address test 22\",\n\"total\":55\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -242,7 +221,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/order/edit",
+							"raw": "http://localhost:8080/api/order/49",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -251,28 +230,19 @@
 							"path": [
 								"api",
 								"order",
-								"edit"
+								"49"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/api/order/addOrderItem",
+					"name": "/api/order/:id",
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"order_id\":49,\n\"price\":100,\n\"qty\":\"1\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:8080/api/order/addOrderItem",
+							"raw": "http://localhost:8080/api/order/48",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -281,6 +251,37 @@
 							"path": [
 								"api",
 								"order",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/order/:id/addOrderItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"price\":100,\n\"qty\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/order/49/addOrderItem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"order",
+								"49",
 								"addOrderItem"
 							]
 						}

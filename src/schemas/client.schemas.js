@@ -1,13 +1,13 @@
 const Joi = require('joi');
 
 const schemas = {
-  clientCreatePOST: Joi.object().keys({
+  clientPOST: Joi.object().keys({
     name: Joi.string().required(),
     surname: Joi.string().required(),
     email: Joi.string().required(),
     phone: Joi.string().required()
   }),
-  clientUpdatePOST: Joi.object().keys({
+  clientPATCH: Joi.object().keys({
     id: Joi.number().required(),
     name: Joi.string(),
     surname: Joi.string(),
